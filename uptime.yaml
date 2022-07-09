@@ -1,0 +1,12 @@
+---
+- hosts: all
+  become: true
+
+  tasks:
+    - name: check the servers uptime
+      register: uptimeoutput
+      command: "uptime"
+
+    - debug:
+        var: uptimeoutput.stdout_lines
+      
